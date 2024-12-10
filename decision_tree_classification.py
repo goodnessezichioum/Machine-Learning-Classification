@@ -36,6 +36,31 @@ y = data['target']
 # Train-test split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+from sklearn import tree
+
+# Initialize a decision tree classifier (no pruning)
+dt_model = DecisionTreeClassifier(random_state=42)
+
+# Train the model on the training data
+dt_model.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = dt_model.predict(X_test)
+
+# Evaluate the model accuracy
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Unpruned Decision Tree Accuracy: {accuracy:.4f}")
+
+import matplotlib.pyplot as plt
+
+# Visualize the decision tree
+plt.figure(figsize=(12, 8))
+tree.plot_tree(dt_model, feature_names=X.columns, class_names=['No Disease', 'Disease'], filled=True, rounded=True)
+plt.title("Unpruned Decision Tree")
+#plt.show()
+
 
 
 
