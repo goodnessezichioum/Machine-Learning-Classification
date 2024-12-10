@@ -74,7 +74,30 @@ y_pred_pruned = dt_pruned_model.predict(X_test)
 accuracy_pruned = accuracy_score(y_test, y_pred_pruned)
 print(f"Pruned Decision Tree Accuracy: {accuracy_pruned:.4f}")
 
+# Cost complexity pruning (post-pruning)
+path = dt_model.cost_complexity_pruning_path(X_train, y_train)
+ccp_alphas = path.ccp_alphas
 
+# Create a list of pruned decision trees for each alpha value
+models = []
+for ccp_alpha in ccp_alphas:
+    model = DecisionTreeClassifier(random_state=42, ccp_alpha=ccp_alpha)
+    model.fit(X_train, y_train)
+    models.append(model)
+
+# Evaluate the models using the test set
+pruned_accuracies = [accuracy_score(y_test, model.predict(X_test)) for model in models]
+
+# Find the best alpha with the highest accuracy
+best_alpha_index = pruned_accuracies.index(max(pruned_accuracies))
+best_model = models[best_alpha_index]
+print(f"Best Pruned Decision Tree Accuracy (Post-Pruning): {pruned_accuracies[best_alpha_index]:.4f}")
+
+# Visualize the pruned decision tree
+plt.figure(figsize=(12, 8))
+tree.plot_tree(best_model, feature_names=X.columns, class_names=['No Disease', 'Disease'], filled=True, rounded=True)
+plt.title("Pruned Decision Tree")
+#plt.show()
 
 
 
