@@ -61,6 +61,19 @@ tree.plot_tree(dt_model, feature_names=X.columns, class_names=['No Disease', 'Di
 plt.title("Unpruned Decision Tree")
 #plt.show()
 
+# Initialize a decision tree classifier with max depth to prevent overfitting
+dt_pruned_model = DecisionTreeClassifier(max_depth=5, random_state=42)
+
+# Train the pruned decision tree
+dt_pruned_model.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred_pruned = dt_pruned_model.predict(X_test)
+
+# Evaluate the model accuracy
+accuracy_pruned = accuracy_score(y_test, y_pred_pruned)
+print(f"Pruned Decision Tree Accuracy: {accuracy_pruned:.4f}")
+
 
 
 
