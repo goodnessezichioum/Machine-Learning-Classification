@@ -5,9 +5,9 @@ This repository contains the materials and code for a tutorial on decision trees
 
 ## Contents
 
-- **`tutorial_script.pdf`**: The transcript of the video tutorial.
-- **`machine-learning-classification.py`**: A Notebook with code to replicate the analysis and figures.
-- **`data/`**: The Heart Disease dataset used in the tutorial.
+- **`Transcript of Tutorial Video.pdf`**: The transcript of the video tutorial.
+- **`decision_tree_classification.py`**: A Notebook with code to replicate the analysis and figures.
+- **`processed.cleveland.data`**: The Heart Disease dataset used in the tutorial.
 - **`plots/`**: Figures generated from the code.
 
 
