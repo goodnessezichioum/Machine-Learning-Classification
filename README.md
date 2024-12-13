@@ -6,10 +6,10 @@ This repository contains the materials and code for a tutorial on decision trees
 ## Contents
 
 - **`tutorial_script.pdf`**: The transcript of the video tutorial.
-- **`decision_tree_pruning.ipynb`**: A Jupyter Notebook with code to replicate the analysis and figures.
+- **`machine-learning-classification.py`**: A Notebook with code to replicate the analysis and figures.
 - **`data/`**: The Heart Disease dataset used in the tutorial.
 - **`plots/`**: Figures generated from the code.
-- **`LICENSE`**: Licensing information for this repository.
+
 
 ## Tutorial Highlights
 
@@ -31,8 +31,4 @@ To run the code, ensure you have Python 3.x installed with the following librari
 - `scikit-learn`
 - `matplotlib`
 
-### Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/decision-tree-pruning-tutorial.git
-   cd decision-tree-pruning-tutorial
+
